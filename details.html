@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/details.css" />
+    <title>Detalhes</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="details-panel">
+        <img id="poster" src="" alt="" />
+
+        <div id="details">
+          <div class="metadata">
+            <span class="metadata-title">Nome:</span>
+            <span id="name" class="metadata-value"></span>
+          </div>
+
+          <div class="metadata">
+            <span class="metadata-title">Tipo:</span>
+            <span id="type" class="metadata-value"></span>
+          </div>
+
+          <div class="metadata">
+            <span class="metadata-title">Idioma:</span>
+            <span id="language" class="metadata-value"></span>
+          </div>
+
+          <div class="metadata">
+            <span class="metadata-title">Gêneros:</span>
+            <span id="genres" class="metadata-value"></span>
+          </div>
+
+          <div class="metadata">
+            <span class="metadata-title">Em execução:</span>
+            <span id="running" class="metadata-value"></span>
+          </div>
+
+          <div class="metadata">
+            <span class="metadata-title">Canal:</span>
+            <span id="channel" class="metadata-value"></span>
+            <div onclick="teste()" id="container-star">
+              <img src="img/empty_star.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="mensage-success"></div>
+      <div id="mensage-error"></div>
+      <div id="back-home"></div>
+    </div>
+
+    <script src="js/details.js"></script>
+  </body>
+</html>
