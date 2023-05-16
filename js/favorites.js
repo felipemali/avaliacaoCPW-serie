@@ -4,10 +4,6 @@ const $ = document.getElementById.bind(document);
 
 window.excludeSerie = (serieId) => {
   getSeriesFavorite(serieId);
-  // series = getSeriesFavorite().filter(
-  //   (serie) => parseInt(serie.id) !== parseInt(serieId)
-  // );
-  // localStorage.setItem("favorite_series", JSON.stringify(series));
   refreshSeries();
   removeCardFromPage(serieId);
 };
