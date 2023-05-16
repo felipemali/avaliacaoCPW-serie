@@ -19,6 +19,7 @@ window.saveSerie = () => {
     star.innerHTML = starOn;
     setTimeout(() => {
       errorID.style.display = "block";
+      successID.style.display = "none";
       errorID.innerHTML = `${newSerie.name} ${textError} `;
     }, 200);
   } else {
