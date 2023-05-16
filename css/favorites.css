@@ -16,14 +16,23 @@ body {
 #link-favorites {
   display: block;
   width: 200px;
-  margin: auto;
+  margin: 0 0 20px 20px;
+
   text-align: center;
   text-decoration: none;
   font-family: "bold";
   background-color: #2d55ff;
-  padding: 10px 0;
+  padding: 12px 0;
   color: white;
   border-radius: 10px;
   margin-top: 15px;
 }
-/*começa aq a arte*/
+@media screen and (max-width: 600px) {
+  #container-favorites {
+    padding: 20px 0;
+  }
+
+  .show-card {
+    width: 100%;
+  }
+}

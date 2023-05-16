@@ -1,4 +1,5 @@
-const API_URL = "https://api.tvmazes.com/search/shows?";
+const API_URL = "https://api.tvmaze.com/search/shows?";
+const API_URL_DETAILS = "https://api.tvmaze.com/shows";
 
 export const searchSeries = async ({ q }) => {
   try {
@@ -7,31 +8,38 @@ export const searchSeries = async ({ q }) => {
     );
 
     return response.map((data) => ({
+      id: data.show.id,
       name: data.show.name,
-      img: data.show.image.medium,
+      imageUrl: data.show.image?.medium || "/img/noimage.png",
     }));
   } catch (e) {
     return [];
   }
 };
 
-// score
-// :
-// 0.7008786
-// show
-// :
-// averageRuntime
-// :
-// 30
-// dvdCountry
-// :
-// null
-// ended
-// :
-// "2013-05-16"
-// externals
-// :
-// {tvrage: 6061, thetvdb: 73244, imdb: 'tt0386676'}
-// genres
-// :
-// ['Comedy']
+export const serachDetailSerie = async ({ id }) => {
+  console.log({ aaa: id });
+  try {
+    const data = await fetch(`${API_URL_DETAILS}/${id}`).then((response) =>
+      response.json()
+    );
+
+    return {
+      id: data.id,
+      name: data.name,
+      type: data.type,
+      language: data.language,
+      genres: data.genres.join(", "),
+      status: data.status,
+      image: data.image.medium,
+      network: data.network.name,
+      webChannel: data.webChannel,
+      running: data.status === "Ended" ? false : true,
+      imageUrl: data.image ? data.image.medium : "/img/noimage.png",
+      channel: data.network ? data.network.name : data.webChannel,
+    };
+  } catch (e) {
+    console.error(e);
+    return [];
+  }
+};

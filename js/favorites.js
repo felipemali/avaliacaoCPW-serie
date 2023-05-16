@@ -1,12 +1,13 @@
-let series = localStorage.getItem("favorite_series")
-  ? JSON.parse(localStorage.getItem("favorite_series"))
-  : [];
-const $ = document.getElementById.bind(document);
-let flagExclued = false;
+import { getSeriesFavorite } from "./data.js";
 
-const excludeSerie = (serieId) => {
-  series = series.filter((serie) => parseInt(serie.id) !== parseInt(serieId));
-  localStorage.setItem("favorite_series", JSON.stringify(series));
+const $ = document.getElementById.bind(document);
+
+window.excludeSerie = (serieId) => {
+  getSeriesFavorite(serieId);
+  // series = getSeriesFavorite().filter(
+  //   (serie) => parseInt(serie.id) !== parseInt(serieId)
+  // );
+  // localStorage.setItem("favorite_series", JSON.stringify(series));
   refreshSeries();
   removeCardFromPage(serieId);
 };
@@ -37,7 +38,7 @@ const refreshSeries = () => {
   const showsArea = $("shows-area-favorites");
   showsArea.innerHTML = "";
 
-  series.forEach((serie) => {
+  getSeriesFavorite().forEach((serie) => {
     printCard(serie);
   });
 };
