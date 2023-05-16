@@ -7,7 +7,12 @@ body {
 #container-favorites {
   padding: 50px 0;
 }
-
+#container-favorites h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+  font-weight: 600;
+  font-size: 80px;
+}
 #shows-area-favorites {
   display: flex;
   flex-wrap: wrap;
@@ -34,5 +39,8 @@ body {
 
   .show-card {
     width: 100%;
+  }
+  #container-favorites h1 {
+    font-size: 30px;
   }
 }
